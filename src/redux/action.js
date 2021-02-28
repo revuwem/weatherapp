@@ -1,10 +1,28 @@
-import { FORECAST_LOADED } from "./action-types";
+import {
+  FETCH_FORECAST_PENDING,
+  FETCH_FORECAST_SUCCESS,
+  FETCH_FORECAST_ERROR,
+} from "./action-types";
 
-const forecastLoaded = (data) => {
+export const fetchForecastPending = () => {
   return {
-    type: FORECAST_LOADED,
-    payload: data,
+    type: FETCH_FORECAST_PENDING,
   };
 };
 
-export { forecastLoaded };
+export const fetchForecastSuccess = (data) => {
+  return {
+    type: FETCH_FORECAST_SUCCESS,
+    payload: {
+      forecast: data,
+      pending: false,
+    },
+  };
+};
+
+export const fetchForecastError = (error) => {
+  return {
+    type: FETCH_FORECAST_ERROR,
+    payload: error,
+  };
+};

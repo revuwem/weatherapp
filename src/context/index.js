@@ -1,6 +1,6 @@
 import {
   OpenWeatherMapProvider,
-  OpenWeatherMapContext,
+  OpenWeatherMapConsumer,
 } from "./openweathermap-context";
 
-export { OpenWeatherMapProvider, OpenWeatherMapContext };
+export { OpenWeatherMapProvider, OpenWeatherMapConsumer };

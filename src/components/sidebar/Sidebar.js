@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
+import LocationsNav from "../locations-nav";
 
 export default function Sidebar() {
-    return (
-        <h2>Sidebar</h2>
-    );
+  return (
+    <aside>
+      <div className="sidebar">
+        <LocationsNav />
+      </div>
+    </aside>
+  );
 }

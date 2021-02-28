@@ -1,19 +1,33 @@
-import { FORECAST_LOADED } from "./action-types";
+import {
+  FETCH_FORECAST_PENDING,
+  FETCH_FORECAST_SUCCESS,
+  FETCH_FORECAST_ERROR,
+} from "./action-types";
 
-const initialState = {
+const inititalState = {
+  pending: false,
   forecast: null,
+  error: null,
 };
 
-const forecastReducer = (state = initialState, action) => {
+export const forecastReducer = (state = inititalState, action) => {
   switch (action.type) {
-    case FORECAST_LOADED:
+    case FETCH_FORECAST_PENDING:
       return {
         ...state,
-        forecast: action.payload,
+        pending: true,
+      };
+    case FETCH_FORECAST_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case FETCH_FORECAST_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
   }
 };
-
-export { forecastReducer };

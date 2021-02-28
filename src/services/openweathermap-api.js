@@ -2,27 +2,17 @@ import axios from "axios";
 
 export default class OpenWeatherMapApi {
   _getResponse = async (options) => {
-    return await axios
-      .request(options)
-      .then((response) => console.log(response.data))
-      .catch((error) => console.error(error));
+    return await axios.request(options);
   };
 
-  getForecast = async (city) => {
+  getForecast = async (location) => {
     const options = {
       method: "GET",
-      url: "https://community-open-weather-map.p.rapidapi.com/weather",
+      url: "https://api.openweathermap.org/data/2.5/weather",
       params: {
-        q: city,
-        callback: "test",
-        id: "2172797",
-        lang: "ru",
+        q: location,
+        appid: process.env.REACT_APP_OPENWEATHERMAP_KEY,
         units: "metric",
-        mode: "xml, html",
-      },
-      headers: {
-        "x-rapidapi-key": process.env.REACT_APP_OPENWEATHERMAP_KEY,
-        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
       },
     };
 
