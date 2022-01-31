@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Sidebar from "../sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import View from "../view";
+import LocationsNav from "../locations-nav";
 
 const App = () => {
-  const [location, setLocation] = useState("Murmansk");
-
   return (
-    <>
-      <h1>Weather App</h1>
-      <Sidebar setLocation={setLocation} />
-      <View location={location} />
-    </>
+    <Router>
+      <div className="app">
+        <LocationsNav />
+        <Switch>
+          <Route path="/:location" children={<View />} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

@@ -1,16 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function LocationsNav() {
   return (
     <nav className="locations-nav">
       <ul className="locations-nav__list">
-        <li className="locations-nav__item">Murmansk</li>
-        <li className="locations-nav__item">Moscow</li>
-        <li className="locations-nav__item">Saint Petersburg</li>
-        <li className="locations-nav__item">London</li>
-        <li className="locations-nav__item">Oslo</li>
-        <li className="locations-nav__item">Warsawa</li>
-        <li className="locations-nav__item">Berlin</li>
+        <li className="locations-nav__item">
+          <Link to="/murmansk">Murmansk</Link>
+        </li>
+        <li className="locations-nav__item">
+          <Link to="/moscow">Moscow</Link>
+        </li>
+        <li className="locations-nav__item">
+          <Link to="/saintpetersburg">Saint Petersburg</Link>
+        </li>
+        <li className="locations-nav__item">
+          <Link to="/london">London</Link>
+        </li>
+        <li className="locations-nav__item">
+          <Link to="/oslo">Oslo</Link>
+        </li>
+        <li className="locations-nav__item">
+          <Link to="/warsawa">Warsawa</Link>
+        </li>
+        <li className="locations-nav__item">
+          <Link to="/berlin">Berlin</Link>
+        </li>
       </ul>
     </nav>
   );

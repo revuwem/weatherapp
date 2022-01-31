@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 
+import { useParams } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
 import fetchForecast from "../../redux/fetchForecast";
 
 import Card from "../card";
 
-export default function View({ location }) {
+export default function View() {
+  const { location } = useParams();
+  console.log(location);
+
   const dispatch = useDispatch();
 
   const { forecast, error } = useSelector((state) => ({
@@ -15,8 +20,13 @@ export default function View({ location }) {
 
   useEffect(() => dispatch(fetchForecast(location)), [dispatch, location]);
 
-  if (error) return <div>We couldn't get forecast for {location}</div>;
-  if (forecast) return <Card forecast={forecast} />;
+  const viewContent = error ? (
+    <div>We couldn't get forecast for {location}</div>
+  ) : forecast ? (
+    <Card forecast={forecast} />
+  ) : (
+    <div>Loading...</div>
+  );
 
-  return <div>Loading...</div>;
+  return <div className="view">{viewContent}</div>;
 }
