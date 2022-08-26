@@ -16,6 +16,7 @@ export const forecastReducer = (state = inititalState, action) => {
       return {
         ...state,
         pending: true,
+        error: null,
       };
     case FETCH_FORECAST_SUCCESS:
       return {
