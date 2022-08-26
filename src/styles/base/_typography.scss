@@ -1,7 +1,15 @@
 body {
   font-size: $font-size-regular;
+  color: #212121;
 }
 
 ul {
   list-style: none;
 }
+
+a{
+  color: inherit;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+

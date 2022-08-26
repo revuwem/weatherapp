@@ -1,4 +1,13 @@
 .app {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 5rem;
+  padding: 2rem;
+}
+
+@media (max-width: 556px){
+  .app {
+    gap: 3rem;
+  }
 }
