@@ -6,13 +6,16 @@ import { OpenWeatherMapProvider } from "./context";
 import App from "./components/app";
 import ErrorBoundary from "./components/error-boundary";
 import "./styles/main.scss";
+import { OpenWeatherMapApi } from "./services";
+
+const openWeatherMapApi = new OpenWeatherMapApi();
 
 const root = document.getElementById("root");
 
 ReactDOM.render(
   <ReduxProvider store={store}>
     <ErrorBoundary>
-      <OpenWeatherMapProvider>
+      <OpenWeatherMapProvider value={openWeatherMapApi}>
         <App />
       </OpenWeatherMapProvider>
     </ErrorBoundary>
