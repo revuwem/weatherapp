@@ -9,7 +9,6 @@ import Card from "../card";
 
 export default function View() {
   const { location } = useParams();
-  console.log(location);
 
   const dispatch = useDispatch();
 
